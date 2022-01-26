@@ -1,0 +1,14 @@
+class Solution {
+    static int areAnagram(String S1, String S2) {
+        // code here
+        char[] c1 = S1.toCharArray();
+        char[] c2 = S2.toCharArray();
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+        if(Arrays.equals(c1,c2))
+        {
+            return 1;
+        }
+        else return 0;
+    }
+}
