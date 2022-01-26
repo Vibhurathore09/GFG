@@ -1,0 +1,18 @@
+int getMiddle(Node head)
+    {
+        Node p=head;
+         double c=0;
+         while(head.next!=null){
+             c++;
+             head=head.next;
+         }
+         int count=0;
+         while(p.next!=null){
+             if(count==Math.ceil(c/2))
+                break;
+             count++;
+             p=p.next;
+         }
+         return p.data;
+         // Your code here.
+    }
