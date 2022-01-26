@@ -1,0 +1,47 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	    Scanner sc = new Scanner(System.in);
+        int T;
+        int D;
+        int N;
+        T = sc.nextInt();
+    
+        for(int s=0;s<T;s++)
+        {
+            N=sc.nextInt();
+            D=sc.nextInt(); 
+          
+            int[] arr=new int[N];
+            for(int m=0;m<N;m++)
+            {
+                arr[m]=sc.nextInt();
+            }
+            int Dtemp = D;
+            for(int i=0;i<N-Dtemp;i++)
+            {
+                int temp = arr[i];
+                arr[i] = arr[D];
+                arr[D] = temp;
+        
+                for(int j=i+1;j<D;j++)
+                {
+                    int temp2 = arr[j];
+                    arr[j] = arr[D];
+                    arr[D] = temp2;
+                }
+                D++;
+            }
+            for(int l=0;l<N;l++)
+            {
+                System.out.print(arr[l]+" ");
+                
+            }
+            System.out.println();
+        }
+	}
+}
