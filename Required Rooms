@@ -1,0 +1,26 @@
+static int rooms(int N, int M){
+        // code here
+        int room = N+M;
+        if(M==N)
+            return 2;
+        if(M>N)
+        {
+            for(int i=1;i<M;i++)
+            {
+                if(M%i==0 && N%i==0)
+                {
+                    room = M/i + N/i;
+                }
+            }
+        }
+        else{
+            for(int i=1;i<N;i++)
+            {
+                if(M%i==0 && N%i==0)
+                {
+                    room = M/i + N/i;
+                }
+            }
+        }
+        return room;
+    }
