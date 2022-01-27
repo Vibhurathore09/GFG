@@ -1,0 +1,19 @@
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	 //code
+	    Scanner sc = new Scanner(System.in);
+	    int t = sc.nextInt();
+	    while(t-->0)
+	    {
+	        String s = sc.next();
+	        char ch[] = s.toCharArray();
+	        Arrays.sort(ch);
+	        String s1 = new String(ch);
+	        System.out.println(s1);
+	    }
+	 }
+}
