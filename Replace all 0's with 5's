@@ -1,0 +1,17 @@
+class GfG {
+    int convertfive(int num) {
+        // Your code here
+        String s = ""+num;
+        char c[] = s.toCharArray();
+        for(int i=0;i<c.length;i++)
+        {
+            if(c[i]=='0')
+            {
+                c[i] = '5';
+            }
+        }
+        String s1 = new String(c);
+        int n = Integer.parseInt(s1);
+        return n;
+    }
+}
