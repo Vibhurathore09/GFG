@@ -1,0 +1,21 @@
+class Solution {
+    static int RedOrGreen(int N, String S) {
+        //code here
+        char ch[] = S.toCharArray();
+        int R=0,G=0;
+        for(int i=0;i<N;i++)
+        {
+            if(ch[i]=='R')
+            {
+                R++;
+            }
+            else 
+                G++;
+        }
+        if(G>R)
+        {
+            return R;
+        }
+        return G;
+    }
+}
