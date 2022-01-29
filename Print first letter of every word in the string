@@ -1,0 +1,18 @@
+class Solution {
+    String firstAlphabet(String S) {
+        // code here
+        String s="";
+        
+        char ch[] = S.toCharArray();
+        s=s+ch[0];
+        for(int i=1;i<S.length()-1;i++)
+        {
+            if(ch[i]==' ')
+            {
+                s=s+ch[i+1];
+            }
+        }
+        return s;
+    
+    }
+};
