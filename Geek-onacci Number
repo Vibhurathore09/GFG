@@ -1,0 +1,29 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class GFG
+ {
+	public static void main (String[] args)
+	 {
+	 //code
+	 Scanner sc = new Scanner(System.in);
+	 int t=sc.nextInt();
+	 while(t-->0)
+	 {
+	     int a = sc.nextInt();
+	     int b = sc.nextInt();
+	     int c = sc.nextInt();
+	     int n = sc.nextInt();
+	     System.out.println(geek(a,b,c,n));
+	 }
+	 }
+	 public static int geek(int a,int b,int c, int n)
+	 {
+	     int d = a+b+c;
+	     n=n-1;
+	     if((n-3)==0)
+	        return d;
+	        
+	     return geek(b,c,d,n);
+	 }
+}
