@@ -1,0 +1,13 @@
+class Solution {
+    static long nthPosition(long n){
+        // code here
+        if(n<2) return 0;
+        
+        while((n & (n-1))!=0)
+        {
+            n=n&(n-1);
+        }
+        return n;
+        
+    }
+}
