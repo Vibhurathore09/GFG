@@ -1,0 +1,21 @@
+class Geeks {
+    // Function to find largest number with minimum frequency
+    public static int LargButMinFreq(int arr[], int n) {
+        Map<Integer,Integer> map=new HashMap<Integer,Integer>();
+       for(int i=0;i<n;i++)
+       {
+           map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+       }
+       int max=Integer.MIN_VALUE;
+       int min=Integer.MAX_VALUE;
+       for(int key : map.keySet())
+       {
+           if(key>max && map.get(key)<=min)
+           {
+               max=key;
+               min=map.get(key);
+           }
+       }
+       return max;
+    }
+}
