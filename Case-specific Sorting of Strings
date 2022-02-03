@@ -1,0 +1,40 @@
+public static String caseSort(String str)
+    {
+        // Your code here
+        String s ="";
+        ArrayList<Character> a1 = new ArrayList<Character>();
+        ArrayList<Character> a2 = new ArrayList<Character>();
+        char ch[] = str.toCharArray();
+        for(int i=0;i<str.length();i++)
+        {
+            
+            if(Character.isLowerCase(ch[i]))
+            {
+                a1.add(ch[i]);
+            }
+            else if(Character.isUpperCase(ch[i]))
+            {
+                a2.add(ch[i]);
+            }
+
+        }
+        Collections.sort(a1);
+        Collections.sort(a2);
+        int m=0;
+        int l=0;
+        for(int i=0;i<str.length();i++)
+        {
+            if(Character.isLowerCase(ch[i]))
+            {
+                s+=a1.get(m);
+                m++;
+            }
+            else
+            {
+                s+=a2.get(l);
+                l++;
+            }
+        }
+        
+        return s;
+    }
