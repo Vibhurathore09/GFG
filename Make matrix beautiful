@@ -1,0 +1,24 @@
+class Solution 
+{
+    //Function to find minimum number of operations that are required 
+    //to make the matrix beautiful.
+    static int findMinOperation(int matrix[][], int n)
+    {
+        // code here
+        int matSum = 0;
+       int maxSum = 0;
+       int fakeMaxSum = 0;
+       for(int i = 0 ; i< n; i++){
+           int rowSum = 0;
+           int colSum2 = 0;
+           for(int j = 0 ; j< n; j++){
+               matSum += matrix[i][j];
+               rowSum += matrix[i][j];
+               colSum2 += matrix[j][i];
+           }
+           fakeMaxSum = Math.max(rowSum ,colSum2); 
+           maxSum = Math.max(maxSum , fakeMaxSum);
+       }
+       return n*maxSum - matSum ; 
+    }
+}
