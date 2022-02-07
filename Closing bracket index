@@ -1,0 +1,23 @@
+class Sol
+{
+    int closing (String s, int pos)
+    {
+        // your code here   
+        int flag = 1;
+        int i=0,n=s.length();
+        char ch[] = s.toCharArray();
+        for( i=pos+1;i<n;i++)
+        {
+            if(ch[i]==']')
+            {
+                flag-=1;
+            }
+            else if(ch[i]=='[')
+                flag+=1;
+            if(flag==0)
+                break;
+            
+        }
+        return i;
+    }
+}
