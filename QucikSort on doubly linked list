@@ -1,0 +1,26 @@
+class GfG
+{
+    public static Node partition(Node l, Node h)
+    {
+        //code here.
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        Node p = l;
+        Node q = l;
+        while(p!=null)
+        {
+            a.add(p.data);
+            p=p.next;
+            
+        }
+        Collections.sort(a);
+        int i=0;
+        while(q!=null)
+        {
+            q.data = a.get(i);
+            i++;
+            q=q.next;
+        }
+        return l;
+        
+    }
+}
