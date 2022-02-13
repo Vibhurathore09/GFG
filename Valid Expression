@@ -1,0 +1,31 @@
+class Solution 
+{ 
+    boolean valid(String s) 
+    { 
+        // code here
+        Stack<Character> stack = new Stack<>();
+        int n = s.length();
+        char[] c = s.toCharArray();
+        boolean b = true;
+        for(int i=0;i<s.length();i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[')
+                stack.push(s.charAt(i));
+            if (stack.isEmpty()) {
+                b = false;
+                break;
+            }
+            else {
+                if ((s.charAt(i) == ')' && stack.peek() == '(') || (s.charAt(i) == '}' && stack.peek() == '{') ||
+                        (s.charAt(i) == ']' && stack.peek() == '['))
+                    stack.pop();
+                else if ((s.charAt(i) == ')' && stack.peek() != '(') || (s.charAt(i) == '}' && stack.peek() != '{') ||
+                        (s.charAt(i) == ']' && stack.peek() != '['))
+                    stack.push(s.charAt(i));
+            }
+        }
+        if(stack.isEmpty() && b)
+            return true;
+        else
+            return false;
+    }
+}
