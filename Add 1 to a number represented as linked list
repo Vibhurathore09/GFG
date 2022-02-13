@@ -1,0 +1,53 @@
+class Solution
+{
+    public static Node addOne(Node head) 
+    { 
+        //code here.
+        Node  a = Reverse(head);
+        Node b;
+        if(a.data<9)
+        {
+            a.data = a.data + 1;
+            a = Reverse(a);
+            return a;
+        }
+        else
+        {
+            b = a;
+            while(b!=null && b.data == 9)
+            {
+                b.data = 0;
+                b = b.next;
+            }
+            if(b!=null)
+            {
+                b.data +=1 ;
+                return Reverse(a);
+            }
+            else
+            {
+                Node temp = new Node(1);
+                temp.next = a;
+                a = temp;
+                return a;
+                
+            }
+        }
+        
+        
+        
+    }
+    public static Node Reverse(Node head)
+    {
+        Node curr = head;
+        Node prev = null;
+        while(curr!=null)
+        {
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
+    }
+}
