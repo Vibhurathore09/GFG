@@ -1,0 +1,33 @@
+class GfG
+{
+    Node mergeResult(Node node1, Node node2)
+    {
+	// Your code here
+	ArrayList<Integer> a = new ArrayList();
+	Node t = null;
+	Node n = node1;
+	while(n!=null)
+	{
+	    a.add(n.data);
+	    n=n.next;
+
+	}
+	Node p = node2;
+	while(p!=null)
+	{
+	    a.add(p.data);
+	    p=p.next;
+
+	}
+	Collections.sort(a);
+	for(int i=0;i<a.size();i++)
+	{
+	    Node no = new Node(a.get(i));
+	    no.next = t;
+	    t = no;
+	}
+	
+	return t;
+    }
+    
+}
