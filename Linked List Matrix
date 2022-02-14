@@ -1,0 +1,32 @@
+class GFG
+{
+    static Node construct(int arr[][],int n)
+    {
+        Node head = new Node(arr[0][0]);
+        Node a = head;
+        for(int i=0;i<n;i++)
+        {
+            Node t = a;
+            for(int j=0;j<n;j++)
+            {
+                
+                if(j+1==n)
+                {
+                    a.right = null;
+                }
+                else 
+                    a.right = new Node(arr[i][j+1]);
+                if(i+1==n)
+                    a.down = null;
+                else
+                    a.down = new Node(arr[i+1][j]);
+                a = a.right;
+                
+            }
+            a = t;
+            a = a.down;
+        }
+        return head;
+        
+    }
+}
