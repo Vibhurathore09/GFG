@@ -1,0 +1,30 @@
+class MyStack 
+{
+    StackNode head;
+    
+    //Function to push an integer into the stack.
+    void push(int a) 
+    {
+        StackNode n = new StackNode(a);
+        // Add your code here
+            n.next = head;
+            head = n;
+                
+        
+    }
+    
+    //Function to remove an item from top of the stack.
+    int pop() 
+    {
+        // Add your code here
+        if(head==null)
+        {
+            return -1;
+        }
+        
+            int x = head.data;
+            head= head.next;
+        
+        return x;
+    }
+}
