@@ -1,0 +1,20 @@
+class GfG
+{
+    public static boolean compute(Node node)
+    {
+        Node n = node;
+        String s = "";
+        while(n!=null)
+        {
+            s+=""+n.data;
+            n = n.next;
+        }
+        String s1 = "";
+        for(int i=s.length()-1;i>=0;i--)
+        {
+            s1+=s.charAt(i);
+            
+        }
+        return s.equals(s1);
+    }
+}
