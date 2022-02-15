@@ -1,0 +1,29 @@
+class GfG 
+{
+    public static Node rearrange(Node root)
+    {
+        ArrayList<Integer> a = new ArrayList<>();
+        Node head = root;
+        Node n = root;
+        while(n!=null)
+        {
+            a.add(n.data);
+            n = n.next;
+        }
+        int s = 0;
+        int e = a.size()-1;
+        while(head!=null)
+        {
+            head.data = a.get(s++);
+            head = head.next;
+            if(head!=null)
+            {
+                head.data = a.get(e--);
+                head = head.next;
+            }
+        }
+        return root;
+        
+    }
+    
+}
