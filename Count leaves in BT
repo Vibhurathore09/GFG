@@ -1,0 +1,17 @@
+class Tree
+{
+    int countLeaves(Node root) 
+    {
+         // Your code
+         if(root == null)
+            return 0;
+        int count = 0;
+        if(root.left == null && root.right == null)
+        {
+            count++;
+        }
+        count += countLeaves(root.left);
+        count += countLeaves(root.right);
+        return count;
+    }
+}
