@@ -1,0 +1,23 @@
+
+class Tree
+{
+    int maxlevel = 0;
+    //Function to return list containing elements of left view of binary tree.
+    ArrayList<Integer> leftView(Node root)
+    {
+      // Your code here
+      ArrayList<Integer> l = new ArrayList<>();
+      LEFTVIEW(root, l , 0);
+      return l;
+    }
+    void LEFTVIEW(Node root , ArrayList<Integer> l , int level)
+    {
+        if(root == null) return ;
+        if(l.size() == level)
+        {
+            l.add(root.data);
+        }
+        LEFTVIEW(root.left , l , level+1);
+        LEFTVIEW(root.right, l,  level+1);
+    }
+}
