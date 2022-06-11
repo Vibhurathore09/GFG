@@ -1,0 +1,16 @@
+class Solution {
+    int remove_duplicate(int A[],int N){
+        // code here
+        Stack<Integer> st = new Stack<Integer>();
+        int c = 1;
+        st.push(A[0]);
+        for(int i = 1; i< N ; i++){
+            if(st.peek() != A[i]){
+                st.push(A[i]);
+                A[c] = st.peek();
+                c++;
+            }
+        }
+        return st.size();
+    }
+}
