@@ -1,0 +1,18 @@
+class Solution{
+    static ArrayList<Integer> downwardDigonal(int n, int A[][])
+    {
+        // code here 
+        ArrayList<Integer> a = new ArrayList<>();
+        for(int j = 0 ; j < n ; j++){
+            for(int k = j, i = 0 ; i <= j ;i++,k--){
+                a.add(A[i][k]);
+            }
+        }
+        for(int i = 1 ; i < n ; i++){
+            for(int j = n-1 , k=i ; k<n ; j--,k++){
+                a.add(A[k][j]);
+            }
+        }
+        return a;
+    }
+}
