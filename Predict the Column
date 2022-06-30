@@ -1,0 +1,28 @@
+class Solution
+{
+    int columnWithMaxZeros(int arr[][], int N)
+    {
+        int [] a1 = new int[N];
+        int c = 0;
+        // code here 
+        for(int j = 0 ; j < N ; j++){
+            c = 0;
+            for(int i = 0 ; i < N ;i++){
+                if(arr[i][j] == 0){
+                    c++;
+                }
+            }
+            a1[j] = c;
+        }
+        int max = a1[0];
+        int idx = 0;
+        for(int i = 0 ; i < N; i++){
+            // System.out.println(a1[i]);
+            if(max < a1[i]){
+                max = a1[i];
+                idx = i;
+            }
+        }
+        return idx;
+    }
+}
