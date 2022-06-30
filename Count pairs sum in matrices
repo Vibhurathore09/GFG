@@ -1,0 +1,24 @@
+class Solution {
+    int countPairs(int mat1[][], int mat2[][], int n, int x) {
+        // code here
+        HashSet<Integer> h1 = new HashSet<Integer>();
+        HashSet<Integer> h2 = new HashSet<Integer>();
+        int count = 0;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                h1.add(new Integer(mat1[i][j]));
+                h2.add(new Integer(mat2[i][j]));
+            }
+        }
+        
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(h2.contains(x - mat1[i][j])){
+                    count++;
+                }
+            }
+        }
+        
+        return count;
+    }
+}
