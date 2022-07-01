@@ -1,0 +1,26 @@
+class Solution {
+    int minRow(int N, int M, int A[][]) {
+        // code here
+        ArrayList<Integer> a = new ArrayList<>();
+        int c = 0;
+        for(int i = 0 ; i < N ; i++){
+            c= 0;
+            for(int j = 0 ; j < M ; j++){
+                if(A[i][j] == 1){
+                    c++;
+                }
+            }
+            a.add(c);
+        }
+        int min = M;
+        int idx = 1;
+        for(int i = 0 ; i < a.size() ; i++){
+            // System.out.print(a[i]+" ");
+           if(min > a.get(i)){
+               min = a.get(i);
+               idx = i+1;
+           } 
+        }
+        return idx;
+    }
+};
