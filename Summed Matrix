@@ -1,0 +1,16 @@
+
+class Solution {
+    static long sumMatrix(long n, long q) {
+        // code here
+        if(q>(n+n)){
+            return 0;
+        }else{
+            if(q == n+1){
+                return n;
+            }else{
+                long i = Math.abs((n+1)-q);
+                return n-i;
+            }
+        }
+    }
+};
