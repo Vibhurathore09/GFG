@@ -1,0 +1,18 @@
+class Solution
+{
+        
+    long power(int N,int R)
+    {
+        if(R == 0){
+            return 1;
+        }
+        long np2 = power(N  ,R/2)%1000000007;
+        long n = (np2 * np2)%1000000007;
+        if(R%2 == 1){
+            n = (n * N)%1000000007;
+        }
+        return n;
+        
+    }
+
+}
