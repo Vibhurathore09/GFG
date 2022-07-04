@@ -1,0 +1,22 @@
+public static boolean isLucky(int n)
+    {
+        // Your code here
+        // for(int i = 2 ; i <= n ; i++){
+        //     if(n%i == 0)
+        //     return false;
+        //     if(i > n)
+        //     return true;
+        //     n = n-(n/i);
+        // }
+        // return true;
+        
+        int p = 2;
+        while(p <= n){
+            if(n%p == 0){
+                return false;
+            }
+            n = n - (n/p);
+            p++;
+        }
+        return true;
+    }
