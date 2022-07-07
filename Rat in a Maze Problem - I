@@ -1,0 +1,30 @@
+class Solution {
+    public static ArrayList<String> findPath(int[][] m, int n) {
+        // Your code here
+        ArrayList<String> ans = new ArrayList<>();
+        solve(0,0,m,n,ans,"");
+        return ans;
+    }
+    //i-> Start row
+    //j-> Start column
+    
+    static void solve(int i , int j , int[][]m ,int n , ArrayList<String> ans , String path){
+        if(i < 0 || i > n-1 || j < 0 || j>n-1){ // out of index return
+            return ;
+        }
+        if(m[i][j] == 0){ // if 0 return
+            return ;
+        }
+        if ( i == n-1 && j == n-1){ // Base case
+            ans.add(path);
+            return ;
+        }
+        m[i][j] = 0;
+        solve(i+1,j,m,n,ans,path+"D");//Moving Downwards
+        solve(i,j+1,m,n,ans,path+"R");//Moving Right
+        solve(i-1,j,m,n,ans,path+"U");//Moving Up
+        solve(i,j-1,m,n,ans,path+"L");//Moving Ledt
+        m[i][j] = 1;
+    }
+    
+}
