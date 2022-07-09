@@ -1,0 +1,30 @@
+class Solution {
+    static ArrayList<String> n = new ArrayList<>();
+    public List<String> find_permutation(String S) {
+        ArrayList<String> a = new ArrayList<>();
+        a = permutation(S,"",a);
+        Collections.sort(a);
+        
+        // removeDuplicateElements(n)
+        // System.out.println(n);
+        return a;
+    }
+    public static ArrayList<String> permutation(String s, String a , ArrayList<String> arr){
+        if(s.length() ==0){
+            // System.out.println(n);
+            if(!arr.contains(a))
+                arr.add(a);
+            return arr;
+        }
+        
+        for(int i = 0 ; i < s.length();i++){
+            char ch = s.charAt(i);
+            String left = s.substring(0,i);
+            String right = s.substring(i+1);
+            String req = left+right;
+            arr = permutation(req , a+ch , arr);
+            
+        }
+        return arr;
+    }
+}
