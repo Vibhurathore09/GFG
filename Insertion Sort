@@ -1,0 +1,26 @@
+class Solution
+{
+  static void insert(int arr[],int i)
+  {
+       // Your code here
+       int n = arr.length;
+       insertionSort(arr , n);
+       return;
+  }
+  //Function to sort the array using insertion sort algorithm.
+  static public void insertionSort(int arr[], int n)
+  {
+      //code here
+      for(int i = 1 ; i < n ; i++){
+          for(int j = i-1; j>=0 ; j--){
+              if(arr[j] > arr[j+1]){
+                  int temp = arr[j];
+                  arr[j] = arr[j+1];
+                  arr[j+1] = temp;
+              }else{
+                  break;
+              }
+          }
+      }
+  }
+}
