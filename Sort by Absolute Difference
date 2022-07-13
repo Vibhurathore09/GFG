@@ -1,0 +1,46 @@
+class Solution
+{
+    //Function to sort the array according to difference with given number.
+    static void sortABS(int arr[], int n, int k) {
+    sort(arr, 0, n - 1, k);
+}
+
+private static void sort(int[] arr, int low, int high, int k) {
+    int mid = low + (high - low) / 2;
+
+    if (low < high) {
+        sort(arr, low, mid, k);
+        sort(arr, mid + 1, high, k);
+        merge(arr, low, mid, high, k);
+    }
+}
+
+private static void merge(int[] arr, int low, int mid, int high, int k) {
+    int idx = low;
+    int n1 = mid - low + 1;
+    int n2 = high - mid;
+
+    int[] left = new int[n1], right = new int[n2];
+
+    for (int i = 0; i < n1; i++) {
+        left[i] = arr[low + i];
+    }
+
+    for (int i = 0; i < n2; i++) {
+        right[i] = arr[mid + 1 + i];
+    }
+
+    int i = 0, j = 0;
+    while (i < n1 && j < n2) {
+        int leftAbs = Math.abs(left[i] - k);
+        int rightAbs = Math.abs(right[j] - k);
+        if (leftAbs <= rightAbs) {
+            arr[idx++] = left[i++];
+        } else if (leftAbs > rightAbs) {
+            arr[idx++] = right[j++];
+        }
+    }
+    while (i < n1) arr[idx++] = left[i++];
+    while (j < n2) arr[idx++] = right[j++];
+}
+}
