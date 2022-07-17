@@ -1,0 +1,12 @@
+
+class Solution {
+    int MissingNumber(int array[], int n) {
+        // Your Code Here
+        int sum = 0 , sumMax = 0;
+        for(int x : array){
+            sum += x;
+        }
+        sumMax = (n *(n+1))/2;
+        return sumMax - sum;
+    }
+}
