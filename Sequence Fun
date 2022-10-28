@@ -1,0 +1,18 @@
+
+class Solution
+{
+    int mod = (int)(1e9 + 7);
+    public long nth(long n)
+    {
+        // code here
+        if(n == 1){
+            return 2;
+        }
+        return 1+(n*nth(n-1))%mod;
+        
+    }
+    public int NthTerm(int n){
+        return (int) nth(n);
+    }
+    
+}
