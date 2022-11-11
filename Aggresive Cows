@@ -1,0 +1,65 @@
+
+// User function Template for Java
+class Solution {
+     public static boolean place(int[] v,int k ,int n,int m)
+
+    {
+
+        int p=v[0],c=1;
+
+        for(int i=1;i<n&&c<k;i++)
+
+        {
+
+            if(v[i]-p>=m)
+
+            {
+
+                p=v[i];
+
+                c++;
+
+            }
+
+        }  
+
+        return c==k;
+
+    }
+
+    
+
+    public static int solve(int n, int k, int[] v) {   
+
+        Arrays.sort(v);
+
+        int l=1,h=v[n-1]-v[0],ans=0;
+
+        
+
+        while(l<=h)
+
+        {
+
+            int m=(l+h)/2;    
+
+            if(place(v,k,n,m))
+
+            {
+
+                ans=m;
+
+                l=m+1;
+
+            }
+
+            else
+
+            h=m-1;   
+
+        }
+
+        return ans;
+
+    }
+}
