@@ -1,0 +1,28 @@
+class Solution
+{
+     long floorSqrt(long x)
+	 {
+		// Your code here
+	    long ans = 0;
+		long s = 0;
+		long e = Integer.MAX_VALUE;
+		while(s <= e){
+		    long mid = (e-s)/2 + s;
+		    long n = mid*mid;
+		    if(x == n){
+		        return mid;
+		    }
+		    else if(x > n){
+		        ans = mid;
+		        s = mid+1;
+		    }
+		    else{
+		        
+		        e = mid-1;
+		    }
+		}
+		return ans;
+		
+	 }
+	 
+}
