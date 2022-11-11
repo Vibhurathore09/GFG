@@ -1,0 +1,42 @@
+class Solution {
+    String solve(int[] arr, int n) {
+        // code here
+        if(n == 1){
+            return Integer.toString(arr[0]);
+        }
+        
+        StringBuilder s = new StringBuilder("");
+        StringBuilder str = new StringBuilder("");
+        
+        Arrays.sort(arr);
+        
+        int carry = 0 ;
+        int sum = 0;
+        for(int i = n-1 ; i >= 0 ; i-=2){
+            sum += arr[i] + arr[i-1] + carry;
+            s.append(sum%10);
+            carry = sum/10;
+        }
+        
+        if(n%2 != 0){
+            sum = arr[0] + carry;
+            s.append(sum % 10);
+            carry = sum/10;
+        }
+        
+        if(carry != 0){
+            s.append(carry);
+        }
+        
+        int i = s.length()-1;
+        while(s.charAt(i) == '0'){
+            i--;
+        }
+        
+        for(; i>= 0 ; i--){
+            str.append(s.charAt(i));
+        }
+        
+        return res.toString();
+    }
+}
