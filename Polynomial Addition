@@ -1,0 +1,43 @@
+//Print the polynomial formed by adding both LL in the function itself.
+class Solution
+{
+    public static Node addPolynomial(Node p1,Node p2)
+    {
+        Node dummy = new Node(0,0);
+        Node temp = dummy;
+        //Add your code here.
+        while(p1 != null && p2 != null){
+            
+            if(p1.pow > p2.pow){
+            
+                Node n1 = new Node(p1.coeff , p1.pow);
+                dummy.next = n1;
+                dummy = dummy.next;
+                p1 = p1.next;
+            }
+            else if(p1.pow < p2.pow){
+                Node n1 = new Node(p2.coeff , p2.pow);
+                dummy.next = n1;
+                dummy = dummy.next;
+                p2 = p2.next;
+            }
+            else if(p1.pow == p2.pow){
+                if(p1.coeff + p2.coeff != 0){
+                    Node n1 = new Node(p1.coeff + p2.coeff , p1.pow);
+                    dummy.next = n1;
+                    dummy = dummy.next;
+                }
+                p1 = p1.next;
+                p2 = p2.next;
+                
+            }
+        }
+        if(p1!= null){
+            dummy.next = p1;
+        }
+        if(p2 != null){
+            dummy.next = p2;
+        }
+        return temp.next;
+    }
+}
