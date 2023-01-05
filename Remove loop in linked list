@@ -1,0 +1,61 @@
+
+class Solution
+{
+    //Function to remove a loop in the linked list.
+    public static void removeLoop(Node head){
+
+        // code here
+
+        // remove the loop without losing any nodes
+
+        Node slow,fast;
+
+        slow=fast=head;
+
+        while(fast!=null && fast.next!=null){
+
+            fast=fast.next.next;
+
+            slow=slow.next;
+
+            if(slow==fast){
+
+                break;
+
+            }
+
+        }
+
+        if(fast==null || fast.next==null)   return;
+
+        if(slow==head){ // If the intersection is in the 1st node itself
+
+            while(slow.next!=head){
+
+                slow=slow.next;
+
+            }
+
+            slow.next=null;
+
+            return;
+
+        }
+
+        Node curr=head,prev=slow;
+
+        while(slow!=curr){
+
+            prev=slow;
+
+            slow=slow.next;
+
+            curr=curr.next;
+
+        }
+
+        prev.next=null;
+
+    }
+
+}
