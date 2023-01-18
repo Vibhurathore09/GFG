@@ -1,0 +1,19 @@
+class Solution {
+    //Function to find first node if the linked list has a loop.
+    public static int findFirstNode(Node head){
+        //code here
+        HashSet<Node> set = new HashSet<>();
+        Node curr = head;
+        while(curr.next != null){
+            if(!set.contains(curr)){
+                set.add(curr);
+            }
+            else{
+                return curr.data;
+            }
+            curr = curr.next;
+        }
+        return -1;
+        
+    }
+}
